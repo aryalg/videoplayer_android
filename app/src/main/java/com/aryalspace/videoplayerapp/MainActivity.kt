@@ -1,5 +1,6 @@
 package com.aryalspace.videoplayerapp
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.MediaController
@@ -31,5 +32,20 @@ class MainActivity : AppCompatActivity() {
     videoView.start()
 
 
+        // Displaying Videos from internet
+        val videoView2: VideoView = findViewById(R.id.videoview2)
+
+        val uri = Uri.parse("https://static.videezy.com/system/resources/previews/000/002/231/original/5226496.mp4")
+
+        videoView2.setVideoURI(uri)
+
+        // Media Controller
+        val mediaController2 = MediaController(this)
+        mediaController2.setAnchorView(videoView2)
+        mediaController2.setMediaPlayer(videoView2)
+
+        videoView2.setMediaController(mediaController2)
+
+        videoView2.start()
     }
 }
